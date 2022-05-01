@@ -8,8 +8,11 @@ import signUpForm from "../data/signUpForm.json";
 import { createUser } from "../scripts/firebaseAuth";
 import { createDocumentWithId } from "../scripts/fireStore";
 
-export default function SignUp() {
+export default function SignUp({ uidState }) {
+  const [uid, setUid] = uidState;
+
   //Local state
+  const navigate = useNavigate();
   const [name, setName] = useState("Raya");
   const [email, setEmail] = useState("rayyatar@gmail.com");
   const [password, setPassword] = useState("12345678");
@@ -18,13 +21,15 @@ export default function SignUp() {
   async function onSignUp(event) {
     event.preventDefault();
 
-    const newUID = await createUser(email, password);
+    const newUid = await createUser(email, password);
 
     const newUser = {
       name: name,
       role: "student",
     };
-    const payload = await createDocumentWithId("users", newUID, newUser);
+    const payload = await createDocumentWithId("users", newUid, newUser);
+    setUid(newUid);
+    navigate("/dashboard");
   }
 
   return (

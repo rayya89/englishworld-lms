@@ -1,18 +1,26 @@
 //NPM packages
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { useState } from "react";
 
 //Project files
-import Home from "./pages/Home";
-import SignUp from "./pages/SignUp";
+import UnloggedRoutes from "./routes/UnloggedRoutes";
+import StudentsRoutes from "./routes/StudentsRoutes";
 
 export default function App() {
+  //Local state
+  const [uid, setUid] = useState(null);
+  console.log("App.jsx", uid);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="sign-up" element={<SignUp />} />
-        </Routes>
+          <Route path="dashboard" element={<Dashboard />} />
+        </Routes> */}
+        {uid && <StudentsRoutes uidState={[uid, setUid]} />}
+        {!uid && <UnloggedRoutes uidState={[uid, setUid]} />}
       </BrowserRouter>
     </div>
   );
