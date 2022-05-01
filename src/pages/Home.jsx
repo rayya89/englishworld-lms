@@ -11,6 +11,7 @@ export default function Home() {
       </p>
       <p>Sign up for free and start Learning now!</p>
       <Link to="/sign-up">Sign up</Link>
+      <Link to="/login">Login</Link>
     </div>
   );
 }

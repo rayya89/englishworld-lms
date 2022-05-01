@@ -5,13 +5,15 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
+import Login from "../pages/Login";
 
 export default function StudentsRoutes({ uidState }) {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="sign-up" element={<SignUp uidState={uidState} />} />
-      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="login" element={<Login uidState={uidState} />} />
+      <Route path="dashboard" element={<Dashboard uidState={uidState} />} />
     </Routes>
   );
 }

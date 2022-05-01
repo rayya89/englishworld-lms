@@ -9,6 +9,7 @@ export default function NotLogged() {
         Please don't forget to login or create an account to access our content
       </p>
       <Link to="/sign-up">Sign up</Link>
+      <Link to="/login">Login</Link>
     </div>
   );
 }

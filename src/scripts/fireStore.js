@@ -9,3 +9,9 @@ export async function createDocumentWithId(path, id, data) {
   const documentPath = doc(fireStore, path, id);
   await setDoc(documentPath, data);
 }
+
+export async function getDocument(path, id) {
+  const documentPath = doc(fireStore, path, id);
+  const document = await getDoc(documentPath);
+  return document.data();
+}
