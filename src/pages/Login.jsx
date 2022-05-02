@@ -1,6 +1,7 @@
 // NPM packages
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Project files
 import InputField from "../components/InputField";
@@ -44,6 +45,7 @@ export default function Login({ uidState }) {
         <InputField setup={form.password} state={[password, setPassword]} />
         <button>Login</button>
       </form>
+      <Link to="/recover-password">Forgot password?</Link>
     </div>
   );
 }
