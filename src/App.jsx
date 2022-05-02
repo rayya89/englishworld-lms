@@ -6,22 +6,18 @@ import { useState } from "react";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
 import StudentsRoutes from "./routes/StudentsRoutes";
 import TeachersRoutes from "./routes/TeachersRoutes";
+import { useUser } from "./state/UserContext";
 
 export default function App() {
   //Local state
-  const [uid, setUid] = useState(null);
-  //const [user, setUser] = useState(null);
+  const { user } = useUser();
 
   return (
     <div className="App">
       <BrowserRouter>
-        {uid && uid.role === "student" && (
-          <StudentsRoutes uidState={[uid, setUid]} />
-        )}
-        {uid && uid.role === "teacher" && (
-          <TeachersRoutes uidState={[uid, setUid]} />
-        )}
-        {!uid && <UnloggedRoutes uidState={[uid, setUid]} />}
+        {user && user.role === "student" && <StudentsRoutes />}
+        {user && user.role === "teacher" && <TeachersRoutes />}
+        {!user && <UnloggedRoutes />}
       </BrowserRouter>
     </div>
   );

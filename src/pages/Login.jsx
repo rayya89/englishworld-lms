@@ -8,9 +8,10 @@ import InputField from "../components/InputField";
 import form from "../data/loginForm.json";
 import { loginUser } from "../scripts/firebaseAuth";
 import { getDocument } from "../scripts/fireStore";
+import { useUser } from "../state/UserContext";
 
-export default function Login({ uidState }) {
-  const [uid, setUid] = uidState;
+export default function Login() {
+  const { setUser } = useUser();
 
   const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ export default function Login({ uidState }) {
     const user = await getDocument("users", logginUID);
 
     if (logginUID) {
-      setUid(user);
+      setUser(user);
       navigate("/dashboard");
     }
     {

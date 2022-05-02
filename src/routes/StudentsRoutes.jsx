@@ -8,14 +8,14 @@ import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import RecoverPassword from "../pages/RecoverPassword";
 
-export default function StudentsRoutes({ uidState }) {
+export default function StudentsRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="sign-up" element={<SignUp uidState={uidState} />} />
-      <Route path="login" element={<Login uidState={uidState} />} />
+      <Route path="sign-up" element={<SignUp />} />
+      <Route path="login" element={<Login />} />
       <Route path="recover-password" element={<RecoverPassword />} />
-      <Route path="dashboard" element={<Dashboard uidState={uidState} />} />
+      <Route path="dashboard" element={<Dashboard />} />
     </Routes>
   );
 }

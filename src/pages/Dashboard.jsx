@@ -1,12 +1,13 @@
-import React from "react";
+// Project files
+import { useUser } from "../state/UserContext";
 
-export default function Dashboard({ uidState }) {
-  const [uid, setUid] = uidState;
+export default function Dashboard() {
+  const { setUser } = useUser();
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <button onClick={() => setUid(null)}>Logout</button>
+      <button onClick={() => setUser(null)}>Logout</button>
     </div>
   );
 }

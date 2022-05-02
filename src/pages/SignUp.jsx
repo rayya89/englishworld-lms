@@ -7,9 +7,10 @@ import InputField from "../components/InputField";
 import form from "../data/signUpForm.json";
 import { createUser } from "../scripts/firebaseAuth";
 import { createDocumentWithId, getDocument } from "../scripts/fireStore";
+import { useUser } from "../state/UserContext";
 
-export default function SignUp({ uidState }) {
-  const [uid, setUid] = uidState;
+export default function SignUp() {
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   //Local state
@@ -29,7 +30,7 @@ export default function SignUp({ uidState }) {
     };
     const payload = await createDocumentWithId("users", newUid, newUser);
     const userData = await getDocument("users", newUid);
-    setUid(userData);
+    setUser(userData);
     navigate("/dashboard");
   }
 
