@@ -31,4 +31,5 @@ export async function loginUser(email, password) {
 
 export async function recoverUser(email) {
   await sendPasswordResetEmail(authentification, email);
+  return "Email sent";
 }

@@ -9,6 +9,7 @@ import form from "../data/loginForm.json";
 import { loginUser } from "../scripts/firebaseAuth";
 import { getDocument } from "../scripts/fireStore";
 import { useUser } from "../state/UserContext";
+import { onFail } from "../scripts/onFail";
 
 export default function Login() {
   const { setUser } = useUser();
@@ -22,14 +23,15 @@ export default function Login() {
   //Methods
   async function onLogin(event) {
     event.preventDefault();
+    let user;
+    const uid = await loginUser(email, password).catch(onFail);
+    if (uid) user = await getDocument("users", uid).catch(onFail);
 
-    const logginUID = await loginUser(email, password);
-    const user = await getDocument("users", logginUID);
+    if (user) onSuccess(user);
+  }
 
-    if (logginUID) {
-      setUser(user);
-      navigate("/dashboard");
-    }
+  function onSuccess(user) {
+    setUser(user);
     {
       user.role === "student" && navigate("/dashboard");
     }

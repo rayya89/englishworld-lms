@@ -8,6 +8,7 @@ import form from "../data/signUpForm.json";
 import { createUser } from "../scripts/firebaseAuth";
 import { createDocumentWithId, getDocument } from "../scripts/fireStore";
 import { useUser } from "../state/UserContext";
+import { onFail } from "../scripts/onFail";
 
 export default function SignUp() {
   const { setUser } = useUser();
@@ -22,14 +23,30 @@ export default function SignUp() {
   async function onSignUp(event) {
     event.preventDefault();
 
-    const newUid = await createUser(email, password);
+    const newUid = await createUid().catch(onFail);
+    let newUser, userData;
+    if (newUid) newUser = await createDocument(newUid).catch(onFail);
+    if (newUser) userData = await getUserData(newUid).catch(onFail);
+    if (userData) onSuccess(userData);
+  }
 
-    const newUser = {
-      name: name,
-      role: "student",
-    };
+  async function createUid() {
+    const newUid = await createUser(email, password);
+    return newUid;
+  }
+
+  async function createDocument(newUid) {
+    const newUser = { name: name, role: "student" };
     const payload = await createDocumentWithId("users", newUid, newUser);
+    return payload;
+  }
+
+  async function getUserData(newUid) {
     const userData = await getDocument("users", newUid);
+    return userData;
+  }
+
+  async function onSuccess(userData) {
     setUser(userData);
     navigate("/dashboard");
   }
