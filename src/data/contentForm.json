@@ -1,0 +1,19 @@
+{
+  "name": {
+    "label": "Name",
+    "placeholder": "Ex: Word list",
+    "type": "text"
+  },
+
+  "link": {
+    "label": "Link",
+    "placeholder": "Ex: www.youtube.com/word-list",
+    "type": "text"
+  },
+
+  "difficulty": {
+    "label": "Difficulty",
+    "placeholder": "Ex: easy",
+    "type": "text"
+  }
+}

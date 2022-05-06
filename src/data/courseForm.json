@@ -1,0 +1,13 @@
+{
+  "name": {
+    "label": "Course Name",
+    "placeholder": "Ex: Grammar",
+    "type": "text"
+  },
+
+  "description": {
+    "label": "Course Description",
+    "placeholder": "Ex: Learn english grammar in a simple way",
+    "type": "text"
+  }
+}

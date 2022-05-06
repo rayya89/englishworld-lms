@@ -35,12 +35,8 @@ export default function Login() {
   function onSuccess(user, uid) {
     setUser(user);
     setUid(uid);
-    {
-      user.role === "student" && navigate("/dashboard");
-    }
-    {
-      user.role === "teacher" && navigate("/list-courses");
-    }
+    user.role === "student" && navigate("/dashboard");
+    user.role === "teacher" && navigate("/list-courses");
   }
 
   return (

@@ -3,15 +3,16 @@ import { useState, useEffect } from "react";
 
 // Project files
 import { useUser } from "../state/UserContext";
+import { useCourses } from "../state/CoursesContext";
 import { readCollection } from "../scripts/fireStore";
 import CourseCard from "../components/CourseCard";
 import { onFail } from "../scripts/onFail";
 
 export default function Dashboard() {
   const { user, setUser } = useUser();
+  const { courses, setCourses } = useCourses();
 
   // Local state
-  const [courses, setCourses] = useState([]);
   const [status, setStatus] = useState(0); // 0: loading, 1: loaded, 2: error
 
   // Method
