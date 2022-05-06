@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 import InputField from "../components/InputField";
 import form from "../data/loginForm.json";
 import { loginUser } from "../scripts/firebaseAuth";
-import { getDocument } from "../scripts/fireStore";
+import { readDocument } from "../scripts/fireStore";
 import { useUser } from "../state/UserContext";
+import { useUid } from "../state/UidContext";
 import { onFail } from "../scripts/onFail";
 
 export default function Login() {
   const { setUser } = useUser();
+  const { setUid } = useUid();
 
   const navigate = useNavigate();
 
@@ -25,13 +27,14 @@ export default function Login() {
     event.preventDefault();
     let user;
     const uid = await loginUser(email, password).catch(onFail);
-    if (uid) user = await getDocument("users", uid).catch(onFail);
+    if (uid) user = await readDocument("users", uid).catch(onFail);
 
-    if (user) onSuccess(user);
+    if (user) onSuccess(user, uid);
   }
 
-  function onSuccess(user) {
+  function onSuccess(user, uid) {
     setUser(user);
+    setUid(uid);
     {
       user.role === "student" && navigate("/dashboard");
     }

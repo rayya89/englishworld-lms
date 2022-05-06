@@ -1,6 +1,5 @@
 //NPM packages
 import { BrowserRouter } from "react-router-dom";
-import { useState } from "react";
 
 //Project files
 import UnloggedRoutes from "./routes/UnloggedRoutes";

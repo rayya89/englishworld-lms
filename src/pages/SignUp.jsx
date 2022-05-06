@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import InputField from "../components/InputField";
 import form from "../data/signUpForm.json";
 import { createUser } from "../scripts/firebaseAuth";
-import { createDocumentWithId, getDocument } from "../scripts/fireStore";
+import { createDocumentWithId, readDocument } from "../scripts/fireStore";
 import { useUser } from "../state/UserContext";
+import { useUid } from "../state/UidContext";
 import { onFail } from "../scripts/onFail";
 
 export default function SignUp() {
   const { setUser } = useUser();
+  const { setUid } = useUid();
   const navigate = useNavigate();
 
   //Local state
@@ -27,7 +29,7 @@ export default function SignUp() {
     let newUser, userData;
     if (newUid) newUser = await createDocument(newUid).catch(onFail);
     if (newUser) userData = await getUserData(newUid).catch(onFail);
-    if (userData) onSuccess(userData);
+    if (userData) onSuccess(userData, newUid);
   }
 
   async function createUid() {
@@ -42,12 +44,13 @@ export default function SignUp() {
   }
 
   async function getUserData(newUid) {
-    const userData = await getDocument("users", newUid);
+    const userData = await readDocument("users", newUid);
     return userData;
   }
 
-  async function onSuccess(userData) {
+  async function onSuccess(userData, newUid) {
     setUser(userData);
+    setUid(newUid);
     navigate("/dashboard");
   }
 

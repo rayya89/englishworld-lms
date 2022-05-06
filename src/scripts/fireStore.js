@@ -8,11 +8,21 @@ import { fireStore } from "./firebase";
 export async function createDocumentWithId(path, id, data) {
   const documentPath = doc(fireStore, path, id);
   await setDoc(documentPath, data);
-  return `Document with id ${id} created!`;
+  return `Document with id ${id} is created!`;
 }
 
-export async function getDocument(path, id) {
+export async function readDocument(path, id) {
   const documentPath = doc(fireStore, path, id);
   const document = await getDoc(documentPath);
   return document.data();
+}
+
+export async function readCollection(path) {
+  const collectionPath = collection(fireStore, path);
+  const snapshot = await getDocs(collectionPath);
+  const documents = snapshot.docs.map((item) => {
+    return { id: item.id, ...item.data() };
+  });
+
+  return documents;
 }
