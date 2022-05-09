@@ -1,0 +1,20 @@
+.input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+span {
+  font-weight: bold;
+  margin-bottom: var(--space-small);
+}
+
+input {
+  box-sizing: border-box;
+  width: 300px;
+  height: 44px;
+  padding: var(--space-small) var(--space-medium);
+  border-radius: var(--space-small);
+  border: solid 2px;
+  border-color: var(--swatch-black);
+  background-color: var(--swatch-grey);
+}

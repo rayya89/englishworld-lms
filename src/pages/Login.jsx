@@ -41,7 +41,8 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Welcome back! Please login to continue studying</h1>
+      <h1>Welcome back!</h1>
+      <p>Please login to continue studying</p>
       <form onSubmit={onLogin}>
         <InputField setup={form.email} state={[email, setEmail]} />
         <InputField setup={form.password} state={[password, setPassword]} />

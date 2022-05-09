@@ -3,8 +3,8 @@ export default function InputField({ setup, state }) {
   const [value, setValue] = state;
 
   return (
-    <label>
-      {label}
+    <label className="input-field">
+      <span>{label}</span>
       <input
         type={type}
         placeholder={placeholder}

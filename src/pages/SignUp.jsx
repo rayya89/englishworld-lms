@@ -10,6 +10,7 @@ import { createDocumentWithId, readDocument } from "../scripts/fireStore";
 import { useUser } from "../state/UserContext";
 import { useUid } from "../state/UidContext";
 import { onFail } from "../scripts/onFail";
+import Logo from "../assets/logo.png";
 
 export default function SignUp() {
   const { setUser } = useUser();
@@ -55,10 +56,11 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <div className="sign-up">
+      <img src={Logo} alt="English World logo" />
       <h1>Create an account</h1>
       <p>Create an account with us and start learning!</p>
-      <form onSubmit={onSignUp}>
+      <form className="form" onSubmit={onSignUp}>
         <InputField setup={form.name} state={[name, setName]} />
         <InputField setup={form.email} state={[email, setEmail]} />
         <InputField setup={form.password} state={[password, setPassword]} />

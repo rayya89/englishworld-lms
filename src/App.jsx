@@ -6,6 +6,7 @@ import UnloggedRoutes from "./routes/UnloggedRoutes";
 import StudentsRoutes from "./routes/StudentsRoutes";
 import TeachersRoutes from "./routes/TeachersRoutes";
 import { useUser } from "./state/UserContext";
+import "./styles/styles.css";
 
 export default function App() {
   //Local state
