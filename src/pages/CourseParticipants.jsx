@@ -37,12 +37,9 @@ export default function CourseParticipants() {
   }
 
   // Components
+  // Nesting -1, you can call it just "state" instead of stundet state.
   const StudentCards = students.map((item) => (
-    <StudentCard
-      key={item.id}
-      item={item}
-      studentsState={[students, setStudents]}
-    />
+    <StudentCard key={item.id} item={item} state={[students, setStudents]} />
   ));
 
   //Safeguard

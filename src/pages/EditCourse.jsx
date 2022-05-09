@@ -50,6 +50,9 @@ export default function EditCourse() {
       <h1>Edit {course.name} Course</h1>
       <p>{course.description}</p>
       <button onClick={openForm}>Edit course details</button>
+      {/* Nesting -1, to avoid this, create a component */}
+      {/* Also if you past courseState why do you pass course ID separately??? */}
+      {/* Doesnt courseState include the course ID??? */}
       {openForm && (
         <EditCourseDetails
           formState={[showForm, setShowForm]}

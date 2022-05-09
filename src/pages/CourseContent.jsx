@@ -45,17 +45,18 @@ export default function CourseContent() {
     setStatus(2);
   }
 
+  // nesting -1, naming -1
+  // you dont need to call enrollX, enrollY if the parent function is call Enroll
+  // just call then ID and Data and we understand that are related to the enroll
   async function onEnroll() {
-    const enrollID = `${courseId}_${uid}`;
-    const enrollData = { courseId: courseId, studentId: uid };
-    const enrollment = await createDocumentWithId(
-      "enrollments",
-      enrollID,
-      enrollData
-    ).catch(onFail);
-    if (enrollment) return true;
+    const id = `${courseId}_${uid}`;
+    const data = { courseId: courseId, studentId: uid };
+    const path = "enrollments";
+    const document = await createDocumentWithId(path, id, data).catch(onFail);
+    if (document) return true;
   }
 
+  // Excellent !!!
   //Components
   const LinksList = links.map((item) => <LinkItem key={item.id} item={item} />);
   const FilesList = files.map((item) => <FileItem key={item.id} item={item} />);
@@ -64,6 +65,7 @@ export default function CourseContent() {
   if (status === 0) return <p>Loading</p>;
   if (status === 2) return <p>error</p>;
 
+  // Good, clean JSX easy to folow
   return (
     <div>
       <h1>{course.name}</h1>

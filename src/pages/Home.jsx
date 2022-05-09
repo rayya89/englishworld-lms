@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import BookImage from "../assets/home.png";
 
+// ok
 export default function Home() {
   return (
     <div className="home">

@@ -14,6 +14,7 @@ export default function App() {
 
   return (
     <div className="App">
+      {/* good, clean solution */}
       <BrowserRouter>
         {user && user.role === "student" && <StudentsRoutes />}
         {user && user.role === "teacher" && <TeachersRoutes />}
