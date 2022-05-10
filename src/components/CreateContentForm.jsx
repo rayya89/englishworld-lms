@@ -47,7 +47,7 @@ export default function CreateContentForm({ path, state }) {
       <InputField setup={form.name} state={[name, setName]} />
       <InputField setup={form.link} state={[link, setLink]} />
       <InputField setup={form.difficulty} state={[difficulty, setDifficulty]} />
-      <button>Add</button>
+      <button className="button">Add</button>
     </form>
   );
 }

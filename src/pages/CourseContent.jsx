@@ -1,5 +1,5 @@
 //NPM files
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // Project files
@@ -16,6 +16,7 @@ import { useUid } from "../state/UidContext";
 export default function CourseContent() {
   const { uid } = useUid();
   const { courseId } = useParams();
+  const navigate = useNavigate();
   const path = "courses";
   const linksPath = `${path}/${courseId}/links/`;
   const filesPath = `${path}/${courseId}/files/`;
@@ -68,7 +69,7 @@ export default function CourseContent() {
     <div className="course-content">
       <div className="course-name">
         <h1>{course.name}</h1>
-        <button className="button" onClick={onEnroll}>
+        <button className="button-secondary" onClick={onEnroll}>
           Enroll
         </button>
       </div>
@@ -77,6 +78,9 @@ export default function CourseContent() {
       <div className="content-cards">{LinksList}</div>
       <h2>Course files</h2>
       <div className="content-cards">{FilesList}</div>
+      <button className="button" onClick={() => navigate(-1)}>
+        Go back
+      </button>
     </div>
   );
 }

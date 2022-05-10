@@ -16,3 +16,6 @@
 @import "./pages/RecoverPassword.css";
 @import "./pages/Dashboard.css";
 @import "./pages/CourseContent.css";
+@import "./pages/ListCourses.css";
+@import "./pages/EditCourse.css";
+@import "./pages/NotLogged.css";

@@ -46,10 +46,12 @@ export default function EditCourse() {
   if (status === 2) return <p>error</p>;
 
   return (
-    <div>
+    <div className="edit-course">
       <h1>Edit {course.name} Course</h1>
       <p>{course.description}</p>
-      <button onClick={openForm}>Edit course details</button>
+      <button className="button-secondary" onClick={openForm}>
+        Edit course details
+      </button>
       {openForm && (
         <EditCourseDetails
           formState={[showForm, setShowForm]}
@@ -57,7 +59,9 @@ export default function EditCourse() {
           courseId={courseId}
         />
       )}
-      <button onClick={openContentForm}>Edit course content</button>
+      <button className="button-secondary" onClick={openContentForm}>
+        Edit course content
+      </button>
       {openContentForm && (
         <EditCourseContent
           courseId={courseId}

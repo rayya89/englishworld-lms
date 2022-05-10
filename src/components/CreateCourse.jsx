@@ -53,7 +53,7 @@ export default function CreateCourse({ formState }) {
         setup={form.description}
         state={[description, setDescription]}
       />
-      <button>Add new Course</button>
+      <button className="button-secondary">Add course</button>
     </form>
   );
 }

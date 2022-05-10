@@ -37,6 +37,24 @@ img {
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
+  cursor: pointer;
+}
+
+.button-secondary {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 80px;
+  margin: 0;
+  padding: var(--space-small) var(--space-big);
+  color: var(--color-text);
+  border: none;
+  border-radius: 20px;
+  font-family: "Radio Canada", sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--color-secondary);
 }
 
 li {

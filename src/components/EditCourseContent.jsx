@@ -77,7 +77,9 @@ export default function EditCourseContent({ courseId, formState }) {
       <div>{FilesList}</div>
       <h3>Add File:</h3>
       <CreateContentForm path={filesPath} state={[files, setFiles]} />
-      <button onClick={() => closeForm()}>Finish Editing</button>
+      <button className="button-secondary" onClick={() => closeForm()}>
+        Finish Editing
+      </button>
     </div>
   );
 }

@@ -30,12 +30,16 @@ export default function AdminLinkItem({ item, linksPath, linksState }) {
   }
 
   return (
-    <div>
-      <span>Name:{name}</span>
-      <span>Link:{link}</span>
-      <span>Level:{difficulty}</span>
-      <button onClick={() => onDelete(id)}>Delete</button>
-      <button onClick={openForm}>Edit</button>
+    <div className="admin-item">
+      <span>Name: {name}</span>
+      <span>Link: {link}</span>
+      <span>Level: {difficulty}</span>
+      <button className="button" onClick={() => onDelete(id)}>
+        Delete
+      </button>
+      <button className="button" onClick={openForm}>
+        Edit
+      </button>
       {openForm && (
         <EditItemContent
           formState={[showForm, setShowForm]}

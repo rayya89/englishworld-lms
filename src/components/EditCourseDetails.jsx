@@ -56,7 +56,7 @@ export default function EditCourseDetails({
         setup={form.description}
         state={[description, setDescription]}
       />
-      <button>Update Course</button>
+      <button className="button">Update Course</button>
     </form>
   );
 }

@@ -1,0 +1,27 @@
+.list-courses {
+  padding: var(--space-big) var(--space-big);
+}
+
+.list-courses .cards {
+  margin-top: var(--space-medium);
+  gap: var(--space-medium);
+  margin-bottom: var(--space-ultra);
+}
+
+.list-courses .course-card {
+  margin-bottom: var(--space-medium);
+  display: flex;
+  flex-direction: column;
+}
+
+.options {
+  display: flex;
+  gap: var(--space-small);
+}
+
+@media (min-width: 750px) {
+  .list-courses {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}

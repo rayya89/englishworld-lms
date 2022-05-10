@@ -27,21 +27,25 @@ export default function AdminCourseCard({ item }) {
   }
 
   return (
-    <article className="admin-Course-card">
+    <article className="course-card">
       <h2>{name}</h2>
-      <button
-        onClick={() => navigate(`edit-course/${id}`)}
-        className="button-secondary"
-      >
-        Edit course
-      </button>
-      <button onClick={() => onDelete(id)}>Delete Course</button>
-      <button
-        onClick={() => navigate(`participants/${id}`)}
-        className="button-secondary"
-      >
-        Show participants
-      </button>
+      <div className="options">
+        <button
+          onClick={() => navigate(`edit-course/${id}`)}
+          className="button"
+        >
+          Edit course
+        </button>
+        <button className="button" onClick={() => onDelete(id)}>
+          Delete Course
+        </button>
+        <button
+          onClick={() => navigate(`participants/${id}`)}
+          className="button"
+        >
+          Show participants
+        </button>
+      </div>
     </article>
   );
 }

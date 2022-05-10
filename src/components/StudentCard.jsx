@@ -53,10 +53,12 @@ export default function StudentCard({ item, studentsState }) {
   if (status === 2) return <p>error</p>;
 
   return (
-    <div>
+    <div className="student-card">
       <li>
         <span>{student.name}</span>
-        <button onClick={() => onDelete(id)}>Delete</button>
+        <button className="button" onClick={() => onDelete(id)}>
+          Delete
+        </button>
       </li>
     </div>
   );

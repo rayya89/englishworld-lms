@@ -65,7 +65,7 @@ export default function EditItemContent({
           setup={form.difficulty}
           state={[difficulty, setDifficulty]}
         />
-        <button>Edit</button>
+        <button className="button">Edit</button>
       </form>
     </div>
   );

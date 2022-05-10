@@ -52,17 +52,21 @@ export default function ListCourses() {
   if (status === 2) return <p>error</p>;
 
   return (
-    <div>
+    <div className="list-courses">
       <h1>Admin Platform</h1>
       <p>Welcome {user.name}!</p>
       <p>CHOOSE A COURSE TO EDIT</p>
-      <div className="grid">
+      <div className="cards">
         {courses.length === 0 && emptyMessage}
         {courses.length > 0 && CourseCards}
       </div>
-      <button onClick={openForm}>Add a new course</button>
+      <button className="button-secondary" onClick={openForm}>
+        Add a new course
+      </button>
       {openForm && <CreateCourse formState={[showForm, setShowForm]} />}
-      <button onClick={() => setUser(null)}>Logout</button>
+      <button className="button" onClick={() => setUser(null)}>
+        Logout
+      </button>
     </div>
   );
 }

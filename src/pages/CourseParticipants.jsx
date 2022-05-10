@@ -50,13 +50,13 @@ export default function CourseParticipants() {
   if (status === 2) return <p>error</p>;
 
   return (
-    <div>
+    <div className="participants">
       <h1>Course Participants</h1>
       <p>
         Here you can find all the students in this course. Feel free to delete
         anyone of them.
       </p>
-      <ul>
+      <ul className="student-list">
         {students.length === 0 && emptyMessage}
         {students.length > 0 && StudentCards}
       </ul>

@@ -17,14 +17,6 @@
   margin-bottom: var(--space-small);
 }
 
-.course-name .button {
-  display: block;
-  padding: 0;
-  background-color: var(--color-secondary);
-  font-weight: 600;
-  border-radius: 15px;
-}
-
 .content-cards {
   margin-bottom: var(--space-medium);
 }
