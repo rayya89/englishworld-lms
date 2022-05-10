@@ -11,6 +11,7 @@ import { useUser } from "../state/UserContext";
 import { useUid } from "../state/UidContext";
 import { onFail } from "../scripts/onFail";
 import Logo from "../assets/logo.png";
+import Hero from "../assets/start.png";
 
 export default function SignUp() {
   const { setUser } = useUser();
@@ -57,15 +58,21 @@ export default function SignUp() {
 
   return (
     <div className="sign-up">
-      <img src={Logo} alt="English World logo" />
-      <h1>Create an account</h1>
-      <p>Create an account with us and start learning!</p>
-      <form className="form" onSubmit={onSignUp}>
-        <InputField setup={form.name} state={[name, setName]} />
-        <InputField setup={form.email} state={[email, setEmail]} />
-        <InputField setup={form.password} state={[password, setPassword]} />
-        <button>Create account</button>
-      </form>
+      <section className="hero-section">
+        <img src={Hero} alt="rocket" />
+        <h2>Welcome to English World!</h2>
+      </section>
+      <section className="form-section">
+        <img src={Logo} alt="English World logo" />
+        <h1>Create an account</h1>
+        <p>Create an account with us and start learning!</p>
+        <form className="form" onSubmit={onSignUp}>
+          <InputField setup={form.name} state={[name, setName]} />
+          <InputField setup={form.email} state={[email, setEmail]} />
+          <InputField setup={form.password} state={[password, setPassword]} />
+          <button className="button">Create account</button>
+        </form>
+      </section>
     </div>
   );
 }

@@ -7,6 +7,8 @@ import InputField from "../components/InputField";
 import form from "../data/recoverPasswordForm.json";
 import { recoverUser } from "../scripts/firebaseAuth";
 import { onFail } from "../scripts/onFail";
+import Logo from "../assets/logo.png";
+import Hero from "../assets/recoverPassword.png";
 
 export default function RecoverPassword() {
   const navigate = useNavigate();
@@ -30,15 +32,24 @@ export default function RecoverPassword() {
 
   return (
     <div className="recover-password">
-      <p>
-        If you forgot your password, enter the email used to create the account.
-      </p>
-      <p>Check also your spam folder.</p>
-      <form onSubmit={onRecover}>
-        <InputField setup={form.email} state={[email, setEmail]} />
-        <button>Recover account</button>
-      </form>
-      <Link to="/login">Go back to login</Link>
+      <section className="hero-section">
+        <img src={Hero} alt="lost-key" />
+        <h2>Recover your account in one step!</h2>
+      </section>
+      <section className="form-section">
+        <img src={Logo} alt="English World logo" />
+        <p>
+          Enter the email used to create your account. Check also your spam
+          folder.
+        </p>
+        <form className="form" onSubmit={onRecover}>
+          <InputField setup={form.email} state={[email, setEmail]} />
+          <button className="button">Recover account</button>
+        </form>
+        <Link className="link" to="/login">
+          Go back to login
+        </Link>
+      </section>
     </div>
   );
 }

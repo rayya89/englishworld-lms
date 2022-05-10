@@ -1,8 +1,13 @@
 .form {
   box-sizing: border-box;
-  padding: var(--space-big) var(--space-ultra);
+  padding-top: var(--space-medium);
+  padding-bottom: var(--space-medium);
 }
 
 .input-field {
   margin-bottom: var(--space-medium);
+}
+
+.form button {
+  margin-top: var(--space-medium);
 }

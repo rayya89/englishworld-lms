@@ -11,3 +11,5 @@
 /* Pages */
 @import "./pages/Home.css";
 @import "./pages/SignUp.css";
+@import "./pages/Login.css";
+@import "./pages/RecoverPassword.css";

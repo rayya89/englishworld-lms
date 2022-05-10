@@ -11,6 +11,8 @@ import { readDocument } from "../scripts/fireStore";
 import { useUser } from "../state/UserContext";
 import { useUid } from "../state/UidContext";
 import { onFail } from "../scripts/onFail";
+import Logo from "../assets/logo.png";
+import Hero from "../assets/login.png";
 
 export default function Login() {
   const { setUser } = useUser();
@@ -40,15 +42,24 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Welcome back!</h1>
-      <p>Please login to continue studying</p>
-      <form onSubmit={onLogin}>
-        <InputField setup={form.email} state={[email, setEmail]} />
-        <InputField setup={form.password} state={[password, setPassword]} />
-        <button>Login</button>
-      </form>
-      <Link to="/recover-password">Forgot password?</Link>
+    <div className="login">
+      <section className="hero-section">
+        <img src={Hero} alt="key" />
+        <h2>Login to continue studying!</h2>
+      </section>
+      <section className="form-section">
+        <img src={Logo} alt="English World logo" />
+        <h1>Welcome back!</h1>
+        <p>Please login to continue studying</p>
+        <form className="form" onSubmit={onLogin}>
+          <InputField setup={form.email} state={[email, setEmail]} />
+          <InputField setup={form.password} state={[password, setPassword]} />
+          <button className="button">Login</button>
+        </form>
+        <Link className="link" to="/recover-password">
+          Forgot password?
+        </Link>
+      </section>
     </div>
   );
 }

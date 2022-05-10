@@ -1,35 +1,42 @@
-.sign-up {
+.login {
   padding: var(--space-big) var(--space-big);
   min-height: 100vh;
 }
 
-.sign-up h1 {
+.login h1 {
   text-align: center;
   margin-bottom: var(--space-big);
 }
 
-.sign-up img {
+.login img {
   width: 100px;
   display: block;
   margin: 0 auto;
 }
 
-.sign-up .button {
+.login .button {
   display: block;
   margin: 0 auto;
 }
 
-.sign-up .hero-section {
+.login .link {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.login .hero-section {
   display: none;
 }
 
 @media (min-width: 750px) {
-  .sign-up {
+  .login {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0;
   }
-  .sign-up .hero-section {
+  .login .hero-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,11 +45,11 @@
     padding: var(--space-big);
   }
 
-  .sign-up .form-section {
+  .login .form-section {
     padding: var(--space-ultra);
   }
 
-  .sign-up .hero-section img {
+  .login .hero-section img {
     width: 275px;
     margin-bottom: var(--space-ultra);
   }
