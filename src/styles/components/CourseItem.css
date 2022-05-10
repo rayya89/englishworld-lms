@@ -1,0 +1,33 @@
+.file-item img {
+  width: 35px;
+}
+
+.link-item img {
+  width: 50px;
+}
+
+.file-item,
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
+  margin-bottom: var(--space-small);
+}
+
+.item-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-name a {
+  color: var(--color-text);
+}
+
+.item-name span {
+  display: inline;
+}
+
+.item-name label {
+  font-weight: 400;
+}

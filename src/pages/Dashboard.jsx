@@ -45,11 +45,13 @@ export default function Dashboard() {
   if (status === 2) return <p>error</p>;
 
   return (
-    <div>
+    <div className="dashboard">
       <h1>Home</h1>
       <p>Welcome {user.name}! Here are all our courses. Start Learning!</p>
-      <div className="grid">{CourseCards}</div>
-      <button onClick={() => setUser(null)}>Logout</button>
+      <div className="cards">{CourseCards}</div>
+      <button className="button" onClick={() => setUser(null)}>
+        Logout
+      </button>
     </div>
   );
 }

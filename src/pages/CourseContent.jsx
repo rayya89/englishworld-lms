@@ -65,14 +65,18 @@ export default function CourseContent() {
   if (status === 2) return <p>error</p>;
 
   return (
-    <div>
-      <h1>{course.name}</h1>
+    <div className="course-content">
+      <div className="course-name">
+        <h1>{course.name}</h1>
+        <button className="button" onClick={onEnroll}>
+          Enroll
+        </button>
+      </div>
       <p>{course.description}</p>
-      <button onClick={onEnroll}>Enroll</button>
       <h2>Course links</h2>
-      <div>{LinksList}</div>
+      <div className="content-cards">{LinksList}</div>
       <h2>Course files</h2>
-      <div>{FilesList}</div>
+      <div className="content-cards">{FilesList}</div>
     </div>
   );
 }
